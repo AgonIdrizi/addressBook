@@ -1,8 +1,19 @@
 @import '../../styles//variables.scss';
 .Search {
-  display: flex;
+  position: sticky;
+  top: 65px;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: white;
+  z-index: 10;
+  padding-bottom: 40px;
+
+  .SearchBox {
+    display: flex;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 [type='text'] {

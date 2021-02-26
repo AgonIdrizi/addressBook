@@ -6,13 +6,21 @@ import './Home.scss';
 
 const Home: React.FunctionComponent = (): JSX.Element => {
   return (
-    <div className="Home">
+    <>
       <SearchBox />
-      <UserCard />
-      <UserCard />
-      <UserCard />
-      <UserCard />
-    </div>
+      <section className="UsersCardContainer">
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+      </section>
+    </>
   );
 };
 

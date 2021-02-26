@@ -9,16 +9,18 @@ const SearchBox: React.FunctionComponent = (): JSX.Element => {
   };
   return (
     <section className="Search">
-      <input
-        onChange={(e) => setValue(e.target.value)}
-        value={value}
-        type="text"
-        id="search"
-        placeholder="Search"
-      />
-      <Button onClick={() => onSearchHandler()} buttonType={TYPES.PRIMARY}>
-        Search
-      </Button>
+      <div className="SearchBox">
+        <input
+          onChange={(e) => setValue(e.target.value)}
+          value={value}
+          type="text"
+          id="search"
+          placeholder="Search"
+        />
+        <Button onClick={() => onSearchHandler()} buttonType={TYPES.PRIMARY}>
+          Search
+        </Button>
+      </div>
     </section>
   );
 };

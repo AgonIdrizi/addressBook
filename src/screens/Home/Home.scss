@@ -1,7 +1,6 @@
-.Home {
-  h1 {
-    font-size: 32px;
-    color: red;
-    font-weight: 900;
-  }
+.UsersCardContainer {
+  display: flex;
+  flex-direction: column;
+  flex-flow: wrap;
+  justify-content: center;
 }
