@@ -1,0 +1,21 @@
+.Search {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+[type='text'] {
+  display: block;
+  padding: 0.5rem;
+  background: transparent;
+  vertical-align: middle;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #cdcdcd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  &:focus {
+    outline: none;
+    border: 1px solid #1e6bd6;
+  }
+}

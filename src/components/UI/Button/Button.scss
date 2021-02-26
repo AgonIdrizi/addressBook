@@ -22,4 +22,9 @@
   &:hover {
     background-color: #bfc8d4;
   }
+  &:focus {
+    &:focus {
+      outline: none;
+    }
+  }
 }

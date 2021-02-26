@@ -1,13 +1,13 @@
 import React from 'react';
-import Button, { TYPES } from '../../components/UI/Button/Button';
+import SearchBox from '../../components/SearchBox/SearchBox';
+
 import './Home.scss';
 
 const Home: React.FunctionComponent = (): JSX.Element => {
   return (
     <div className="Home">
-      <Button onClick={() => console.log('onCLick')} buttonType={TYPES.PRIMARY}>
-        Search
-      </Button>
+      <SearchBox />
+
       <h1>Home</h1>
     </div>
   );
