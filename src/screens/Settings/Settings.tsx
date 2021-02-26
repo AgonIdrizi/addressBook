@@ -1,13 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Settings = (): JSX.Element => {
-  return (
-    <div>
-      <Link to="/">Home</Link>
-      Settings
-    </div>
-  );
+const Settings: React.FunctionComponent = (): JSX.Element => {
+  return <div>Settings</div>;
 };
 
 export default Settings;

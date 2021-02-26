@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import { Switch } from 'react-router';
-import Home from './screens/Home/Home';
-import Settings from './screens/Settings/Settings';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Container from './components/Container/Container';
+import Routes from './utils/Routes';
 import './styles.scss';
 
 const App = () => (
   <Router>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/settings" component={Settings} />
-      <Route path="*" render={() => <Redirect to="/" push />} />
-    </Switch>
+    <Container>
+      <Routes />
+    </Container>
   </Router>
 );
 
