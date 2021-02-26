@@ -1,7 +1,13 @@
 import React from 'react';
+import UserInfoField from './UserInfoField';
 import './UserCard.scss';
 
 const UserCard: React.FunctionComponent = (): JSX.Element => {
+  const onShowMoreHandler = (e: React.MouseEvent<HTMLElement>): void => {
+    e.preventDefault();
+    console.log(e);
+  };
+
   return (
     <div className="UserCard">
       <div className="UserPicture">
@@ -11,21 +17,20 @@ const UserCard: React.FunctionComponent = (): JSX.Element => {
         />
       </div>
       <div className="UserInfo">
-        <p>
-          <span className="Light">First name: </span> Agon
-        </p>
-        <p>
-          <span className="Light">Last name: </span> Idrizi
-        </p>
-        <p>
-          <span className="Light">Username: </span> Aggon88
-        </p>
-        <p>
-          <span className="Light">Email: </span> agon@agon.com
-        </p>
+        <UserInfoField field="First name:" text="Agon" />
+        <UserInfoField field="Last name:" text="Idrizi" />
+        <UserInfoField field="Username:" text="Aggon88" />
+        <UserInfoField field="Email:" text="agon@agon.com" />
       </div>
       <div className="ShowMore">
-        <a href="#">Show more</a>
+        <a
+          onClick={(e) => onShowMoreHandler(e)}
+          href="#"
+          role="button"
+          aria-label="Show modal"
+        >
+          Show more
+        </a>
       </div>
     </div>
   );
