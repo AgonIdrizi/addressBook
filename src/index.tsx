@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Container from './components/Container/Container';
+import { UsersProvider } from './contexts/usersContext';
 import Routes from './utils/Routes';
 import './styles.scss';
 
 const App = () => (
   <Router>
-    <Container>
-      <Routes />
-    </Container>
+    <UsersProvider>
+      <Container>
+        <Routes />
+      </Container>
+    </UsersProvider>
   </Router>
 );
 
