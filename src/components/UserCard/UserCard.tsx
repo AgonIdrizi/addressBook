@@ -1,8 +1,9 @@
 import React from 'react';
 import UserInfoField from './UserInfoField';
+import { IUser } from '../../types/user.types';
 import './UserCard.scss';
 
-const UserCard: React.FunctionComponent = (): JSX.Element => {
+const UserCard: React.FC<IUser | any> = ({ user }) => {
   const onShowMoreHandler = (e: React.MouseEvent<HTMLElement>): void => {
     e.preventDefault();
     console.log(e);
@@ -11,16 +12,13 @@ const UserCard: React.FunctionComponent = (): JSX.Element => {
   return (
     <div className="UserCard">
       <div className="UserPicture">
-        <img
-          src="https://randomuser.me/api/portraits/med/men/75.jpg"
-          alt="user-photo"
-        />
+        <img src={user.picture.thumbnail} alt="user-photo" />
       </div>
       <div className="UserInfo">
-        <UserInfoField field="First name:" text="Agon" />
-        <UserInfoField field="Last name:" text="Idrizi" />
-        <UserInfoField field="Username:" text="Aggon88" />
-        <UserInfoField field="Email:" text="agon@agon.com" />
+        <UserInfoField field="First name:" text={user.name.first} />
+        <UserInfoField field="Last name:" text={user.name.last} />
+        <UserInfoField field="Username:" text={user.login.username} />
+        <UserInfoField field="Email:" text={user.email} />
       </div>
       <div className="ShowMore">
         <a

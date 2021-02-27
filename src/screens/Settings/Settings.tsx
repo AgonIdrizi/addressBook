@@ -1,10 +1,8 @@
 import React from 'react';
 import RadioButton from '../../components/UI/RadioButton/RadioButton';
 import { useLocalStorageState } from '../../hooks/useLocalStorage';
-import {radioButtons} from '../../utils/constants';
+import { radioButtons } from '../../utils/constants';
 import './Settings.scss';
-
-
 
 const Settings: React.FunctionComponent = (): JSX.Element => {
   const [state, setState] = useLocalStorageState('nationality', '');

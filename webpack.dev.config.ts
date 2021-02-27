@@ -80,7 +80,10 @@ const config: webpack.Configuration = {
     new MiniCssExtractPlugin({
        filename:  '[name].css' ,
        chunkFilename: '[id].css' 
-     })
+     }),
+     new webpack.DefinePlugin({
+      "process.env.MY_ENV_VAR": JSON.stringify(process.env.MY_ENV_VAR)
+    })
   ],
   devtool: "inline-source-map",
   devServer: {

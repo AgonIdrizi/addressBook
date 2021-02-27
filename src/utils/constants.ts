@@ -10,3 +10,5 @@ export const radioButtons: RadioButtons[] = [
   { id: 'r3', value: 'FR', label: 'France' },
   { id: 'r4', value: 'GB', label: 'Great Britain' }
 ];
+
+export const apiURL = 'https://randomuser.me/api';
