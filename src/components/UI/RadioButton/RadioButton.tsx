@@ -5,6 +5,8 @@ import './RadioButton.scss';
 const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
   id,
   value,
+  isSelected,
+  label,
   onRadioButtonHandler
 }) => {
   return (
@@ -13,10 +15,11 @@ const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
         onChange={(e) => onRadioButtonHandler(e)}
         id={id}
         type="radio"
-        name="radio"
+        name={id}
+        checked={isSelected}
         value={value}
       />
-      <label htmlFor={id}>{value}</label>
+      <label htmlFor={id}>{label}</label>
     </div>
   );
 };

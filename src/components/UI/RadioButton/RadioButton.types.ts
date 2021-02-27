@@ -1,5 +1,7 @@
 export interface RadioButtonProps {
   id: string;
   value: string;
-  onRadioButtonHandler(e: React.ChangeEvent<HTMLInputElement>): void
+  label: string;
+  isSelected: boolean;
+  onRadioButtonHandler(e: React.ChangeEvent<HTMLInputElement>): void;
 }

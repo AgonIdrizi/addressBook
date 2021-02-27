@@ -1,37 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import RadioButton from '../../components/UI/RadioButton/RadioButton';
+import { useLocalStorageState } from '../../hooks/useLocalStorage';
+import {radioButtons} from '../../utils/constants';
 import './Settings.scss';
 
+
+
 const Settings: React.FunctionComponent = (): JSX.Element => {
-  const [, setSelectedValue] = useState('');
+  const [state, setState] = useLocalStorageState('nationality', '');
   const onRadioButtonHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(e.target.value);
+    setState(e.target.value);
   };
 
   return (
     <div className="Settings">
       <h4>Hey, select one of the nationalities below!</h4>
-
-      <RadioButton
-        id="r1"
-        value="CH"
-        onRadioButtonHandler={onRadioButtonHandler}
-      />
-      <RadioButton
-        id="r2"
-        value="ES"
-        onRadioButtonHandler={onRadioButtonHandler}
-      />
-      <RadioButton
-        id="r3"
-        value="FR"
-        onRadioButtonHandler={onRadioButtonHandler}
-      />
-      <RadioButton
-        id="r4"
-        value="GB"
-        onRadioButtonHandler={onRadioButtonHandler}
-      />
+      {radioButtons.map((radio) => (
+        <RadioButton
+          key={radio.id}
+          id={radio.id}
+          value={radio.value}
+          label={radio.label}
+          isSelected={state == radio.value}
+          onRadioButtonHandler={onRadioButtonHandler}
+        />
+      ))}
     </div>
   );
 };

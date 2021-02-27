@@ -1,8 +1,9 @@
 import React from 'react';
-function useLocalStorageState(
+
+function useLocalStorageState<T>(
   key: string,
   defaultValue: string | (() => void) = ''
-) {
+): [T, (value: T) => void] {
   const [state, setState] = React.useState(() => {
     const valueInLocalStorage = window.localStorage.getItem(key)
     if (valueInLocalStorage) {
