@@ -65,5 +65,14 @@ export interface IHttpUsersResponse {
   results: IUser[]
 }
 
+export type UsersStateType = {
+  data: IUser[];
+  isError: boolean;
+  isLoading: boolean;
+  page: number,
+  maxPage: number;
+  more: boolean
+}
+
 
 

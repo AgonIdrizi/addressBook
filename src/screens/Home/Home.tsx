@@ -2,28 +2,35 @@ import React from 'react';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import UserCard from '../../components/UserCard/UserCard';
 import { useUsersContext } from '../../contexts/usersContext';
-import { useUsersApi } from '../../hooks/useUsersApi';
+import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
 import { IUser } from '../../types/user.types';
-
 import './Home.scss';
 
 const Home: React.FunctionComponent = (): JSX.Element => {
-  const [{ isLoading, data, isError }, setPage] = useUsersContext();
+  const { state, fetchUsers } = useUsersContext();
+  const [setElement] = useInfiniteScroll(fetchUsers);
 
+  console.log('Home renders');
   return (
     <>
       <SearchBox />
-      <button onClick={() => setPage((old: number) => old + 1)}>
-        {' '}
-        Fetch more
-      </button>
-      <section className="UsersCardContainer">
-        {data &&
-          data.map((user: IUser, idx: number) => (
-            <UserCard key={user.email + idx} user={user} />
-          ))}
+      <button onClick={() => {}}> Fetch more</button>
+      <section>
+        <div className="UsersCardContainer">
+          {state.data &&
+            state.data.map((user: IUser, idx: number) => (
+              <UserCard key={user.email + idx} user={user} />
+            ))}
+        </div>
+        {state.isLoading && <li>Loading...</li>}
+
+        {!state.isLoading && state.more && (
+          //@ts-ignore
+          <div ref={setElement} style={{ background: 'transparent' }}></div>
+        )}
       </section>
-      {isLoading && <p>Loading...</p>}
+
+      {/*isLoading && <p>Loading...</p>*/}
     </>
   );
 };

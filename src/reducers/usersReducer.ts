@@ -1,24 +1,8 @@
-import { IUser } from "../types/user.types";
-
-type State = {
-  data:  IUser[] | null ;
-  isLoading: boolean;
-  isError: boolean
-}
-
-type Action =
-  | { type: 'FETCH_INIT' }
-  | { type: 'FETCH_SUCCESS'; payload: IUser[] }
-  | { type: 'FETCH_FAILURE' }
+import {UsersActionType, UserActionWithPayload} from './usersReducer.types'
+import {UsersStateType} from '../types/user.types'
 
 
-const initialState: State = {
-  isLoading: true,
-  isError: false,
-  data: [],
-}
-
-const dataFetchReducer = (state: State, action: Action): State => {
+const usersReducer = (state: UsersStateType, action: UsersActionType) => {
   switch (action.type) {
     case 'FETCH_INIT':
       return {
@@ -31,7 +15,7 @@ const dataFetchReducer = (state: State, action: Action): State => {
         ...state,
         isLoading: false,
         isError: false,
-        //data: [...state.data, action.payload ],
+        data: [...state.data, ...(action as UserActionWithPayload).value ],
       };
     case 'FETCH_FAILURE':
       return {
@@ -39,9 +23,14 @@ const dataFetchReducer = (state: State, action: Action): State => {
         isLoading: false,
         isError: true,
       };
+      case 'LOAD_MORE':
+        return {
+          ...state,
+          page: state.page + 1
+        };
     default:
       throw new Error();
   }
 };
 
-export {dataFetchReducer}
+export {usersReducer}
