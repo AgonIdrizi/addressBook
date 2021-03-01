@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SearchBox from '../../components/SearchBox/SearchBox';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import UserCard from '../../components/UserCard/UserCard';
 import { useUsersContext } from '../../contexts/usersContext';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
@@ -40,15 +41,14 @@ const Home: React.FunctionComponent = (): JSX.Element => {
             ))}
         </div>
 
-        {state.isLoading && <li>Loading...</li>}
+        {state.isLoading && <Spinner />}
 
         {!isFiltering && !state.isLoading && state.more && (
           //@ts-ignore
           <div ref={setElement} style={{ background: 'transparent' }}></div>
         )}
+        {!state.more && <div>End of users catalog</div>}
       </section>
-
-      {/*isLoading && <p>Loading...</p>*/}
     </>
   );
 };

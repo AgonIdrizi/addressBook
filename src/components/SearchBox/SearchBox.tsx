@@ -11,7 +11,7 @@ const SearchBox: React.FunctionComponent<ISearchBoxProps> = ({
 }): JSX.Element => {
   const [value, setValue] = useState('');
   const onChangeHandler = (value: string) => {
-    onSearchHandler(value);
+    onSearchHandler(value.toLowerCase());
     setValue(value);
   };
   return (
