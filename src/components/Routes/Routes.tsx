@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch } from 'react-router';
 import { Route, Redirect } from 'react-router-dom';
-import Home from '../screens/Home/Home';
-import Settings from '../screens/Settings/Settings';
+import Home from '../../screens/Home/Home';
+import Settings from '../../screens/Settings/Settings';
 
 const Routes: React.FunctionComponent = (): JSX.Element => {
   return (

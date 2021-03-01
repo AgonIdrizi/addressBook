@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-function useInfiniteScroll(fetchData:any){
+function useInfiniteScroll(fetchData: () => Promise<void>| null): [React.Dispatch<React.SetStateAction<HTMLDivElement | null>>]{
   
-  const loader = React.useRef(fetchData);
+  const loader = React.useRef<any>(fetchData);
   const observer = React.useRef(
     new IntersectionObserver(
       entries => {
@@ -24,15 +24,15 @@ function useInfiniteScroll(fetchData:any){
   }, [fetchData]);
 
   React.useEffect(() => {
-    const currentElement:any = element;
+    const currentElement: HTMLDivElement | null = element;
     const currentObserver = observer.current;
 
-    if (currentElement) {
+    if (currentElement!== null) {
       currentObserver.observe(currentElement);
     }
 
     return () => {
-      if (currentElement) {
+      if (currentElement!== null) {
         currentObserver.unobserve(currentElement);
       }
     };

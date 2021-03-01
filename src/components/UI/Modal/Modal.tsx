@@ -6,7 +6,7 @@ import './Modal.scss';
 interface IModalProps {
   showModal: boolean;
   setShowModal: React.Dispatch<boolean>;
-  modalContent: any;
+  modalContent: JSX.Element;
   headerText: string;
 }
 

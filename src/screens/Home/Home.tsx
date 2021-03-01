@@ -11,7 +11,7 @@ const Home: React.FunctionComponent = (): JSX.Element => {
   const { state, fetchUsers } = useUsersContext();
   const [isFiltering, setIsFiltering] = useState(false);
   const [setElement] = useInfiniteScroll(fetchUsers);
-  const [filteredUsers, setFilteredUsers] = useState<[] | IUser | any>([]);
+  const [filteredUsers, setFilteredUsers] = useState<[] | IUser[]>([]);
 
   const onSearchHandler = (value: string) => {
     if (value.length === 0) return setIsFiltering(false);
@@ -24,7 +24,6 @@ const Home: React.FunctionComponent = (): JSX.Element => {
     setFilteredUsers(newFilteredUsers);
   };
 
-  console.log('Home renders');
   return (
     <>
       <SearchBox onSearchHandler={onSearchHandler} />

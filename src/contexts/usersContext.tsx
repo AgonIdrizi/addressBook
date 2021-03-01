@@ -43,7 +43,6 @@ const UsersProvider: React.FunctionComponent = ({ children }) => {
       const { info, results }: IHttpUsersResponse = await client(
         `?page=${state.page}${natParam}&results=50`
       );
-      console.log(results, info);
       if (info.page == state.maxPage) {
         return dispatch({ type: 'REACHED_END', value: results });
       }
@@ -60,7 +59,7 @@ const UsersProvider: React.FunctionComponent = ({ children }) => {
   );
 };
 
-function useUsersContext() {
+function useUsersContext(): UsersContextType {
   const context = React.useContext(UsersContext);
   if (context === undefined)
     throw new Error('useUsersContext must be inside a Provider with a value');
