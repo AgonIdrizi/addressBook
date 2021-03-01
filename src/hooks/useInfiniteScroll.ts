@@ -16,7 +16,7 @@ function useInfiniteScroll(fetchData:any){
       { threshold: 0.25 }
     )
   );
-  const [element, setElement] = React.useState(null);
+  const [element, setElement] = React.useState<HTMLDivElement | null>(null);
 
   
   React.useEffect(() => {

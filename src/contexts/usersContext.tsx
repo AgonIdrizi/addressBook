@@ -1,8 +1,7 @@
 import React, { useReducer } from 'react';
-import { useLocalStorageState } from '../hooks/useLocalStorage';
 import { usersReducer } from '../reducers/usersReducer';
 import { UsersActionType } from '../reducers/usersReducer.types';
-import { IHttpUsersResponse, IUser, UsersStateType } from '../types/user.types';
+import { IHttpUsersResponse, UsersStateType } from '../types/user.types';
 import { client } from '../utils/api-client';
 
 const nationality = JSON.parse(
@@ -27,8 +26,8 @@ type UsersContextType = {
 
 const UsersContext = React.createContext<UsersContextType>({
   state: initialState,
-  dispatch: () => {},
-  fetchUsers: () => Promise.resolve()
+  dispatch: () => null,
+  fetchUsers: () => null
 });
 UsersContext.displayName = 'UsersContext';
 

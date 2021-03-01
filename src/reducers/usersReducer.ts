@@ -2,7 +2,7 @@ import {UsersActionType, UserActionWithPayload, UserActionWithStringPayload} fro
 import {UsersStateType} from '../types/user.types'
 
 
-const usersReducer = (state: UsersStateType, action: UsersActionType) => {
+const usersReducer = (state: UsersStateType, action: UsersActionType): UsersStateType => {
   switch (action.type) {
     case 'FETCH_INIT':
       return {

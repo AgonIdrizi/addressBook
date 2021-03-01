@@ -44,7 +44,6 @@ const Home: React.FunctionComponent = (): JSX.Element => {
         {state.isLoading && <Spinner />}
 
         {!isFiltering && !state.isLoading && state.more && (
-          //@ts-ignore
           <div ref={setElement} style={{ background: 'transparent' }}></div>
         )}
         {!state.more && <div>End of users catalog</div>}

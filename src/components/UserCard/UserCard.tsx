@@ -5,11 +5,14 @@ import UserCardDialog from '../UserCardDialog/UserCardDialog';
 import { IUser } from '../../types/user.types';
 import './UserCard.scss';
 
-const UserCard: React.FC<IUser | any> = ({ user }) => {
+interface IUserCardProps {
+  user: IUser;
+}
+
+const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
   const [showModal, setShowModal] = useState(false);
   const onShowMoreHandler = (e: React.MouseEvent<HTMLElement>): void => {
     e.preventDefault();
-    console.log(e);
     setShowModal(true);
   };
 

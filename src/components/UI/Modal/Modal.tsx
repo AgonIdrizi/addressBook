@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import FocusLock from 'react-focus-lock';
 import './Modal.scss';
@@ -14,8 +14,7 @@ const Modal: React.FunctionComponent<IModalProps> = ({
   showModal,
   setShowModal,
   headerText,
-  modalContent,
-  children
+  modalContent
 }) => {
   useEffect(() => {
     showModal

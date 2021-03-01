@@ -3,7 +3,7 @@ import UserInfoField from '../UserInfoField/UserInfoField';
 import './UserCardDialog.scss';
 
 interface IUserCardDialogProps {
-  street: number;
+  street: string;
   city: string;
   state: string;
   postcode: number;
