@@ -69,9 +69,10 @@ export type UsersStateType = {
   data: IUser[];
   isError: boolean;
   isLoading: boolean;
-  page: number,
+  page: number;
   maxPage: number;
-  more: boolean
+  more: boolean;
+  nationality: string | null;
 }
 
 

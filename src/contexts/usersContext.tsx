@@ -1,7 +1,13 @@
 import React, { useReducer } from 'react';
+import { useLocalStorageState } from '../hooks/useLocalStorage';
 import { usersReducer } from '../reducers/usersReducer';
+import { UsersActionType } from '../reducers/usersReducer.types';
 import { IHttpUsersResponse, IUser, UsersStateType } from '../types/user.types';
 import { client } from '../utils/api-client';
+
+const nationality = JSON.parse(
+  window.localStorage.getItem('nationality') as string
+);
 
 const initialState: UsersStateType = {
   data: [],
@@ -9,12 +15,13 @@ const initialState: UsersStateType = {
   isLoading: false,
   page: 1,
   maxPage: 20,
-  more: true
+  more: true,
+  nationality: nationality
 };
 
 type UsersContextType = {
   state: UsersStateType;
-  dispatch: React.Dispatch<any>;
+  dispatch: React.Dispatch<UsersActionType>;
   fetchUsers: () => Promise<void> | null;
 };
 
@@ -29,10 +36,12 @@ const UsersProvider: React.FunctionComponent = ({ children }) => {
   const [state, dispatch] = useReducer(usersReducer, initialState);
 
   const fetchUsers = async (): Promise<void> => {
+    const natParam = state.nationality == null ? '' : `&nat=${state.nationality}`;
+
     dispatch({ type: 'FETCH_INIT' });
     try {
       const { info, results }: IHttpUsersResponse = await client(
-        `?page=${state.page}&results=50`
+        `?page=${state.page}${natParam}&results=50`
       );
       console.log(results, info);
       if (info.page == state.maxPage) {

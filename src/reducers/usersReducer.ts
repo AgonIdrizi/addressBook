@@ -1,4 +1,4 @@
-import {UsersActionType, UserActionWithPayload} from './usersReducer.types'
+import {UsersActionType, UserActionWithPayload, UserActionWithStringPayload} from './usersReducer.types'
 import {UsersStateType} from '../types/user.types'
 
 
@@ -23,6 +23,15 @@ const usersReducer = (state: UsersStateType, action: UsersActionType) => {
         ...state,
         isLoading: false,
         isError: true,
+      };
+    case 'SET_NATIONALITY':
+      return {
+        ...state,
+        page:1,
+        data: [],
+        nationality: (action as UserActionWithStringPayload).value,
+        isLoading: false,
+        isError: false
       };
       case 'REACHED_END':
         return {

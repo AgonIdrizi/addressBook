@@ -1,11 +1,16 @@
 import { IUser } from "../types/user.types";
- export type UserActionWithPayload = {
+export type UserActionWithPayload = {
   type: string;
   value: IUser[];
 };
 
-type UserActionWithoutPayload = {
+export type UserActionWithStringPayload = {
+  type: string;
+  value: string;
+};
+
+export type UserActionWithoutPayload = {
   type: string;
 };
 
-export type UsersActionType = UserActionWithPayload | UserActionWithoutPayload;
+export type UsersActionType = UserActionWithPayload | UserActionWithoutPayload | UserActionWithStringPayload;
