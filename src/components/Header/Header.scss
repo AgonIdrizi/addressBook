@@ -7,12 +7,12 @@
   background-color: white;
   margin-left: auto;
   margin-right: auto;
-  padding: 15px;
+  padding: 15px !important;
   z-index: 10;
   position: sticky;
   top: 0;
 }
 
 .Flex-end {
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }

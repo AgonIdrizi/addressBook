@@ -36,7 +36,8 @@ const UsersProvider: React.FunctionComponent = ({ children }) => {
   const [state, dispatch] = useReducer(usersReducer, initialState);
 
   const fetchUsers = async (): Promise<void> => {
-    const natParam = state.nationality == null ? '' : `&nat=${state.nationality}`;
+    const natParam =
+      state.nationality == null ? '' : `&nat=${state.nationality}`;
 
     dispatch({ type: 'FETCH_INIT' });
     try {
