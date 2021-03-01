@@ -1,8 +1,4 @@
-
 import React from 'react';
-import {client} from '../utils/api-client';
-
-
 
 
 function useInfiniteScroll(fetchData:any){

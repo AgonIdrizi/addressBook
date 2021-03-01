@@ -15,6 +15,7 @@ const usersReducer = (state: UsersStateType, action: UsersActionType) => {
         ...state,
         isLoading: false,
         isError: false,
+        page: state.page + 1,
         data: [...state.data, ...(action as UserActionWithPayload).value ],
       };
     case 'FETCH_FAILURE':
@@ -23,10 +24,13 @@ const usersReducer = (state: UsersStateType, action: UsersActionType) => {
         isLoading: false,
         isError: true,
       };
-      case 'LOAD_MORE':
+      case 'REACHED_END':
         return {
           ...state,
-          page: state.page + 1
+          more: false,
+          data: [...state.data, ...(action as UserActionWithPayload).value ],
+          isLoading: false,
+          isError: false
         };
     default:
       throw new Error();

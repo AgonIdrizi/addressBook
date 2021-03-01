@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { usersReducer } from '../reducers/usersReducer';
 import { IHttpUsersResponse, IUser, UsersStateType } from '../types/user.types';
 import { client } from '../utils/api-client';
@@ -31,8 +31,13 @@ const UsersProvider: React.FunctionComponent = ({ children }) => {
   const fetchUsers = async (): Promise<void> => {
     dispatch({ type: 'FETCH_INIT' });
     try {
-      const { info, results }: IHttpUsersResponse = await client(`?page=${1}&results=50`);
-      console.log(results);
+      const { info, results }: IHttpUsersResponse = await client(
+        `?page=${state.page}&results=50`
+      );
+      console.log(results, info);
+      if (info.page == state.maxPage) {
+        return dispatch({ type: 'REACHED_END', value: results });
+      }
       dispatch({ type: 'FETCH_SUCCESS', value: results });
     } catch (error) {
       dispatch({ type: 'FETCH_FAILURE' });

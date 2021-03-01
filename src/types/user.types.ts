@@ -57,7 +57,7 @@
 
 export interface IHttpUsersResponse {
   info: {
-    page: string, 
+    page: number, 
     results: string, 
     seed: string, 
     version: string
