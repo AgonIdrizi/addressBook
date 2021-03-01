@@ -1,4 +1,4 @@
 export interface UserInfoFieldProps{
   field: string;
-  text: string;
+  text: string | number;
 }
