@@ -22,6 +22,7 @@ const SearchBox: React.FunctionComponent<ISearchBoxProps> = ({
           value={value}
           type="text"
           id="search"
+          aria-label="Search users"
           placeholder="Search"
         />
         <Button

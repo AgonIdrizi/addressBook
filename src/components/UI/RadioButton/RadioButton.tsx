@@ -18,6 +18,8 @@ const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
         name={id}
         checked={isSelected}
         value={value}
+        role="radio"
+        aria-labelledby={id}
       />
       <label htmlFor={id}>{label}</label>
     </div>

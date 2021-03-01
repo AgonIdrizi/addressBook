@@ -1,3 +1,4 @@
+@import '../../styles//variables.scss';
 .UserCard {
   width: 230px;
   height: 160px;
@@ -18,24 +19,24 @@
   }
 
   .UserInfoContainer {
-    font-size: 12px;
+    font-size: $font-size-small;
     margin-top: 5px;
     p {
       padding: 2px 2px;
       margin: 0px;
       word-break: break-all;
       span {
-        color: #a0aec0;
+        color: $color-font-light;
       }
     }
   }
   .ShowMore {
     display: flex;
     justify-content: flex-end;
-    font-size: 12px;
+    font-size: $font-size-small;
     margin-top: 10px;
     a {
-      color: #21a9f2;
+      color: $link-color;
     }
   }
 }

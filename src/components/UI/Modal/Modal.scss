@@ -1,3 +1,4 @@
+@import '../../../styles//variables.scss';
 .Backdrop {
   position: fixed;
   width: 100%;
@@ -16,47 +17,49 @@
   z-index: 700;
   width: inherit;
   outline: 0;
-}
+  .Modal {
+    z-index: 100;
+    min-width: 300px;
+    background: white;
+    position: relative;
+    margin: auto;
+    border-radius: 8px;
 
-.Modal {
-  z-index: 100;
-  background: white;
-  position: relative;
-  margin: auto;
-  border-radius: 8px;
-}
+    .Header {
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.3rem;
+      border-bottom: 1px solid $color-font-light;
+      margin: 2px;
+      .HeaderText {
+        align-self: center;
+        font-weight: 600;
+      }
 
-.Header {
-  border-radius: 8px 8px 0 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.3rem;
-
-  .HeaderText {
-    color: #fff;
-    align-self: center;
-    color: lightgray;
-  }
-
-  .CloseButton {
-    font-size: 0.8rem;
-    border: none;
-    border-radius: 3px;
-    margin-left: 0.5rem;
-    background: none;
-    outline: none;
-    &:hover {
-      cursor: pointer;
+      .CloseButton {
+        font-size: $font-size-base;
+        font-weight: $font-extra-bold;
+        color: $color-font-base;
+        border: none;
+        border-radius: 3px;
+        margin-left: 0.5rem;
+        background: none;
+        outline: none;
+        &:hover {
+          cursor: pointer;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
     }
-    &:focus {
-      outline: none;
+
+    .Content {
+      padding: 10px;
+      max-height: 30rem;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
   }
-}
-
-.Content {
-  padding: 10px;
-  max-height: 30rem;
-  overflow-x: hidden;
-  overflow-y: auto;
 }

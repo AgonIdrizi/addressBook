@@ -27,7 +27,7 @@ const Home: React.FunctionComponent = (): JSX.Element => {
   return (
     <>
       <SearchBox onSearchHandler={onSearchHandler} />
-      <section>
+      <section aria-label="user cards">
         <div className="UsersCardContainer">
           {state.data &&
             !isFiltering &&

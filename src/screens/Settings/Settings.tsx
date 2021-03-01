@@ -14,8 +14,8 @@ const Settings: React.FunctionComponent = (): JSX.Element => {
   };
 
   return (
-    <div className="Settings">
-      <h4>Hey, select one of the nationalities below!</h4>
+    <section aria-labelledby="settings" className="Settings" role="radiogroup">
+      <h4 id="settings">Hey, select one of the nationalities below!</h4>
       {radioButtons.map((radio) => (
         <RadioButton
           key={radio.id}
@@ -26,7 +26,7 @@ const Settings: React.FunctionComponent = (): JSX.Element => {
           onRadioButtonHandler={onRadioButtonHandler}
         />
       ))}
-    </div>
+    </section>
   );
 };
 

@@ -20,8 +20,7 @@
   display: block;
   padding: 0.5rem;
   background: transparent;
-  vertical-align: middle;
-  color: #3f4d5f;
+  color: $color-font-base;
   width: 100%;
   max-width: 100%;
   border: 1px solid #cdcdcd;
@@ -29,6 +28,6 @@
   font-size: 0.95rem;
   &:focus {
     outline: none;
-    border: 1px solid#5B708A;
+    border: 1px solid $color-brand-3;
   }
 }

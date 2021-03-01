@@ -41,6 +41,7 @@ const Modal: React.FunctionComponent<IModalProps> = ({
               <div className="HeaderText">{headerText}</div>
               <button
                 className="CloseButton"
+                aria-label="Close"
                 onClick={() => setShowModal(false)}
               >
                 X

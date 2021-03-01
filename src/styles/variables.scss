@@ -1,4 +1,4 @@
-$max-container-width: 900px;
+$max-container-width: 1200px;
 
 $color-font-base: #3f4d5f;
 $color-font-light: #a0aec0;
@@ -8,13 +8,17 @@ $color-brand-1: #8194ac;
 $color-brand-2: '';
 $color-brand-3: #5b708a;
 
+$link-color: #21a9f2;
+
 // fonts: weights
 $font-light: 300;
 $font-normal: 400;
 $font-medium: 500;
 $font-bold: 700;
+$font-extra-bold: 900;
 
 // fonts: size
+$font-size-small: 12px;
 $font-size-base: 14px;
 
 // Box shadow
