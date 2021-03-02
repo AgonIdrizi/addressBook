@@ -1,3 +1,4 @@
+@import '../../../styles//variables.scss';
 .Spinner {
   margin: 100px auto 0;
   width: 70px;
@@ -7,7 +8,7 @@
 .Spinner > div {
   width: 18px;
   height: 18px;
-  background-color: #5b708a;
+  background-color: $color-brand-3;
 
   border-radius: 100%;
   display: inline-block;

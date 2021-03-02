@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import ErrorMessageWithButton from '../../components/ErrorMessageWithButton/ErrorMessageWithButton';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import UserCard from '../../components/UserCard/UserCard';
+
 import { useUsersContext } from '../../contexts/usersContext';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
 import { IUser } from '../../types/user.types';
@@ -11,7 +13,7 @@ const Home: React.FunctionComponent = (): JSX.Element => {
   const { state, fetchUsers } = useUsersContext();
   const [isFiltering, setIsFiltering] = useState(false);
   const [setElement] = useInfiniteScroll(fetchUsers);
-  const [filteredUsers, setFilteredUsers] = useState<[] | IUser[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<IUser[]>([]);
 
   const onSearchHandler = (value: string) => {
     if (value.length === 0) return setIsFiltering(false);
@@ -42,8 +44,16 @@ const Home: React.FunctionComponent = (): JSX.Element => {
 
         {state.isLoading && <Spinner />}
 
-        {!isFiltering && !state.isLoading && state.more && (
-          <div ref={setElement} style={{ background: 'transparent' }}></div>
+        {state.isError && (
+          <ErrorMessageWithButton
+            fn={fetchUsers}
+            message="There was an error, please try again by clicking"
+          />
+        )}
+
+        {/*show the interesecting div, only when we are not filtering, not loading, not error, and we have more pages to fetch*/}
+        {!isFiltering && !state.isLoading && !state.isError && state.more && (
+          <div ref={setElement} className="InteresctingDiv" />
         )}
         {!state.more && <div>End of users catalog</div>}
       </section>

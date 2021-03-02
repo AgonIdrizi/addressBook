@@ -19,6 +19,7 @@ async function client<T>(
   return window.fetch(`${apiURL}/${params}`, config).then(async response => {
     
     const data: Promise<T> = await response.json()
+    
     if (response.ok) {
       return data
     } else {

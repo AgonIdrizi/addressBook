@@ -1,7 +1,8 @@
+@import '../../../styles//variables.scss';
 .button {
   cursor: pointer;
   display: inline-block;
-  font-weight: 400;
+  font-weight: $font-normal;
   color: #212529;
   text-align: center;
   background-color: transparent;
@@ -15,7 +16,7 @@
 }
 
 .primary {
-  background-color: #8194ac;
+  background-color: $color-brand-1;
   color: white;
   font-weight: 600;
   border-radius: 5px;

@@ -1,8 +1,9 @@
+@import '../../styles//variables.scss';
 .UserCardDialog {
-  font-weight: 500;
+  font-weight: $font-medium;
   p {
     span {
-      color: #a0aec0;
+      color: $color-font-light;
     }
   }
 }
