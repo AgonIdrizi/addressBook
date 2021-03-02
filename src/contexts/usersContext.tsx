@@ -11,7 +11,7 @@ const nationality = JSON.parse(
   window.localStorage.getItem('nationality') as string
 );
 
-const initialState: UsersStateType = {
+export const initialState: UsersStateType = {
   data: [],
   isError: false,
   isLoading: false,
@@ -21,7 +21,7 @@ const initialState: UsersStateType = {
   nationality: nationality
 };
 
-type UsersContextType = {
+export type UsersContextType = {
   state: UsersStateType;
   dispatch: React.Dispatch<UsersActions>;
   fetchUsers: () => Promise<void> | null;
@@ -70,4 +70,4 @@ function useUsersContext(): UsersContextType {
   return context;
 }
 
-export { UsersProvider, useUsersContext };
+export { UsersProvider, useUsersContext, UsersContext };

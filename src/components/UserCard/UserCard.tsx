@@ -33,6 +33,7 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
             onClick={(e) => onShowMoreHandler(e)}
             href="#"
             role="button"
+            data-testid="show-more"
             aria-label="more"
           >
             Show more

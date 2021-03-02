@@ -17,7 +17,7 @@
       longitude: string
     }
     country: string
-    postcode: number
+    postcode: number | string
     state: string
     street: {
       number: number
@@ -57,8 +57,8 @@
 
 export interface IHttpUsersResponse {
   info: {
-    page: number, 
-    results: string, 
+    page: number,
+    results: number, 
     seed: string, 
     version: string
   }, 

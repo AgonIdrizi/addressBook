@@ -6,7 +6,7 @@ interface IUserCardDialogProps {
   street: string;
   city: string;
   state: string;
-  postcode: number;
+  postcode: number | string;
   phone: string;
   cell: string;
 }
