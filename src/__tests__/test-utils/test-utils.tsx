@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { MemoryRouter, BrowserRouter } from 'react-router-dom';
 import { render as rtlRender } from '@testing-library/react';
+
 import { userMockData, usersMockData } from './mockData';
 import { UsersProvider, UsersContext } from '../../contexts/usersContext';
 import { UsersStateType } from '../../types/user.types';
@@ -19,8 +20,10 @@ const state: UsersStateType = {
 const dispatch = jest.fn();
 const fetchUsers = jest.fn();
 
-function render(ui: React.ReactElement, { customStore = false, ...options } = {}) {
-  
+function render(
+  ui: React.ReactElement,
+  { customStore = false, ...options } = {}
+) {
   const ProvidersWithCustomStore: React.FunctionComponent = ({ children }) => (
     <MemoryRouter>
       <UsersContext.Provider value={{ state, dispatch, fetchUsers }}>
@@ -28,7 +31,7 @@ function render(ui: React.ReactElement, { customStore = false, ...options } = {}
       </UsersContext.Provider>
     </MemoryRouter>
   );
-  const AllProviders :React.FunctionComponent = ({children}) => (
+  const AllProviders: React.FunctionComponent = ({ children }) => (
     <BrowserRouter>
       <UsersProvider>
         <Container>
@@ -36,8 +39,11 @@ function render(ui: React.ReactElement, { customStore = false, ...options } = {}
         </Container>
       </UsersProvider>
     </BrowserRouter>
-  )
-  return rtlRender(ui, { wrapper: customStore ? ProvidersWithCustomStore: AllProviders, ...options });
+  );
+  return rtlRender(ui, {
+    wrapper: customStore ? ProvidersWithCustomStore : AllProviders,
+    ...options
+  });
 }
 
 export * from '@testing-library/react';

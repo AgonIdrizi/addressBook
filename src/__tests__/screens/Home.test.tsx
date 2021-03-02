@@ -15,13 +15,13 @@ afterEach(cleanup);
 
 describe('<Home />', () => {
   it('renders', () => {
-    render(<Home />, {customStore:true});
+    render(<Home />, { customStore: true });
     const usersCardContainer = document.querySelector('.UsersCardContainer');
 
     expect(usersCardContainer?.childElementCount).toEqual(10);
   });
   it('searches users based on first name + last name', async () => {
-    render(<Home />, {customStore:true});
+    render(<Home />, { customStore: true });
 
     const searchInput = document.querySelector('#search') as HTMLInputElement;
 
@@ -37,8 +37,8 @@ describe('<Home />', () => {
     });
   });
   it('opens modal on show more click', async () => {
-    render(<Home />, {customStore:true});
-    
+    render(<Home />, { customStore: true });
+
     const aLink: HTMLElement | any = document.querySelector('.ShowMore');
 
     userEvent.click(aLink.firstElementChild);
@@ -48,8 +48,10 @@ describe('<Home />', () => {
     });
   });
   it('renders intersecting-div', () => {
-    render(<Home/>)
-    const intersectingDiv = document.querySelector('.IntersectingDiv') as HTMLElement;
+    render(<Home />);
+    const intersectingDiv = document.querySelector(
+      '.IntersectingDiv'
+    ) as HTMLElement;
     expect(intersectingDiv).toBeInTheDocument();
   });
 });
