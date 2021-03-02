@@ -8,7 +8,7 @@ const Header: React.FunctionComponent = (): JSX.Element => {
   const isHomePage = pathname === '/';
 
   return (
-    <nav className={`Header ${isHomePage ? 'Flex-end' : ''}`}>
+    <nav role="navigation" className={`Header ${isHomePage ? 'Flex-end' : ''}`}>
       {isHomePage ? (
         <NavLink linkTo="/settings">Settings</NavLink>
       ) : (
