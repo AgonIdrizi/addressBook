@@ -53,7 +53,7 @@ const Home: React.FunctionComponent = (): JSX.Element => {
 
         {/*show the interesecting div, only when we are not filtering, not loading, not error, and we have more pages to fetch*/}
         {!isFiltering && !state.isLoading && !state.isError && state.more && (
-          <div ref={setElement} className="InteresctingDiv" />
+          <div ref={setElement} className="IntersectingDiv" />
         )}
         {!state.more && <div>End of users catalog</div>}
       </section>
