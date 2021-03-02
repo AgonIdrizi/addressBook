@@ -1,6 +1,9 @@
 import React, { useReducer } from 'react';
-import { usersReducer } from '../reducers/usersReducer';
-import { UsersActionType } from '../reducers/usersReducer.types';
+import { usersReducer } from '../store/reducers/usersReducer';
+import {
+  UsersActions,
+  UserActionTypes
+} from '../store/reducers/usersReducer.types';
 import { IHttpUsersResponse, UsersStateType } from '../types/user.types';
 import { client } from '../utils/api-client';
 
@@ -20,7 +23,7 @@ const initialState: UsersStateType = {
 
 type UsersContextType = {
   state: UsersStateType;
-  dispatch: React.Dispatch<UsersActionType>;
+  dispatch: React.Dispatch<UsersActions>;
   fetchUsers: () => Promise<void> | null;
 };
 
@@ -38,17 +41,17 @@ const UsersProvider: React.FunctionComponent = ({ children }) => {
     const natParam =
       state.nationality == null ? '' : `&nat=${state.nationality}`;
 
-    dispatch({ type: 'FETCH_INIT' });
+    dispatch({ type: UserActionTypes.FETCH_INIT });
     try {
       const { info, results }: IHttpUsersResponse = await client(
         `?page=${state.page}${natParam}&results=50`
       );
       if (info.page == state.maxPage) {
-        return dispatch({ type: 'REACHED_END', value: results });
+        return dispatch({ type: UserActionTypes.REACHED_END, value: results });
       }
-      dispatch({ type: 'FETCH_SUCCESS', value: results });
+      dispatch({ type: UserActionTypes.FETCH_SUCCESS, value: results });
     } catch (error) {
-      dispatch({ type: 'FETCH_FAILURE' });
+      dispatch({ type: UserActionTypes.FETCH_FAILURE });
     }
   };
 

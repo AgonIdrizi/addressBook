@@ -1,16 +1,16 @@
-import {UsersActionType, UserActionWithPayload, UserActionWithStringPayload} from './usersReducer.types'
-import {UsersStateType} from '../types/user.types'
+import {UsersActions, UserActionWithPayload, UserActionWithStringPayload ,UserActionTypes} from './usersReducer.types'
+import {UsersStateType} from '../../types/user.types'
 
 
-const usersReducer = (state: UsersStateType, action: UsersActionType): UsersStateType => {
+const usersReducer = (state: UsersStateType, action: UsersActions): UsersStateType => {
   switch (action.type) {
-    case 'FETCH_INIT':
+    case UserActionTypes.FETCH_INIT:
       return {
         ...state,
         isLoading: true,
         isError: false
       };
-    case 'FETCH_SUCCESS':
+    case UserActionTypes.FETCH_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -18,13 +18,13 @@ const usersReducer = (state: UsersStateType, action: UsersActionType): UsersStat
         page: state.page + 1,
         data: [...state.data, ...(action as UserActionWithPayload).value ],
       };
-    case 'FETCH_FAILURE':
+    case UserActionTypes.FETCH_FAILURE:
       return {
         ...state,
         isLoading: false,
         isError: true,
       };
-    case 'SET_NATIONALITY':
+    case UserActionTypes.SET_NATIONALITY:
       return {
         ...state,
         page:1,
@@ -33,7 +33,7 @@ const usersReducer = (state: UsersStateType, action: UsersActionType): UsersStat
         isLoading: false,
         isError: false
       };
-      case 'REACHED_END':
+      case UserActionTypes.REACHED_END:
         return {
           ...state,
           more: false,
