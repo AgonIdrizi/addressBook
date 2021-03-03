@@ -32,6 +32,7 @@ const SearchBox: React.FunctionComponent<ISearchBoxProps> = ({
           Search
         </Button>
       </div>
+      <div className="FilteringInfo">{value ? 'filtering is active': ''}</div>
     </section>
   );
 };
