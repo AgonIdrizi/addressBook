@@ -56,7 +56,7 @@ export const userMockData: IUser = {
   "nat": "BR"
 }
 
-export const usersMockData: IHttpUsersResponse = {
+export const usersMockData: IHttpUsersResponse | any = {
   results: [
     {
       "gender": "male",

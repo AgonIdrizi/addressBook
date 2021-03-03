@@ -11,7 +11,7 @@ const ErrorMessageWithButton: React.FunctionComponent<IErrorMessageWithButtonPro
   message
 }) => {
   return (
-    <div>
+    <div className="ErrorMessage">
       {message}{' '}
       <Button buttonType={TYPES.PRIMARY} onClick={() => fn()}>
         Retry

@@ -18,7 +18,7 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
 
   return (
     <>
-      <div className="UserCard">
+      <div data-testid="user-card" className="UserCard">
         <div className="UserPicture">
           <img src={user.picture.thumbnail} alt="user-photo" />
         </div>

@@ -8,9 +8,18 @@ import { UsersStateType } from '../../types/user.types';
 import Container from '../../components/Container/Container';
 import Routes from '../../components/Routes/Routes';
 
-const state: UsersStateType = {
+const customProviderStore: UsersStateType = {
   data: usersMockData.results,
   isError: false,
+  isLoading: false,
+  page: 1,
+  maxPage: 20,
+  more: true,
+  nationality: ''
+};
+export const customProviderStoreWithError: UsersStateType = {
+  data: [],
+  isError: true,
   isLoading: false,
   page: 1,
   maxPage: 20,
@@ -22,7 +31,7 @@ const fetchUsers = jest.fn();
 
 function render(
   ui: React.ReactElement,
-  { customStore = false, ...options } = {}
+  { customStore = false, state = customProviderStore, ...options } = {}
 ) {
   const ProvidersWithCustomStore: React.FunctionComponent = ({ children }) => (
     <MemoryRouter>
