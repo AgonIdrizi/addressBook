@@ -28,6 +28,7 @@ const usersReducer = (state: UsersStateType, action: UsersActions): UsersStateTy
       return {
         ...state,
         page:1,
+        more: true,
         data: [],
         nationality: (action as UserActionWithStringPayload).value,
         isLoading: false,
